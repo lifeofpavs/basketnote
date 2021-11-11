@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+<h1 style="text-align:center; font-size:67pt">This is BasketNote </h1>
+
+<div class="ui two column doubling stackable grid container center aligned">
+  <div class="four wide column">
+    <h2>Team A</h2>
+    <p id="points_a"><%= @points_a %></p>
+      <%= render 'point_button', { reflex: "click->Points#increment", step: 1, points_a: @points_a, points_b: @points_b, team: "a" }%>
+      <%= render 'point_button', { reflex: "click->Points#increment", step: 2, points_a: @points_a, points_b: @points_b, team: "a" }%>
+      <%= render 'point_button', { reflex: "click->Points#increment", step: 3, points_a: @points_a, points_b: @points_b, team: "a" }%>
+      <div class="two wide column">
+        <button class="small ui teal button mt-5" data-reflex="click->PlayerReflex#add">
+          +
+        </button>
+      </div>
+
+      <%= render 'players'%>
+  </div>
+
+  <div class="two wide column">
+    <button class="ui negative button" data-reflex="click->PointsReflex#reset">
+      Reset
+    </button>
+  </div>
+
+  <div class="four wide column">
+    <h2>Team B</h2>
+    <p id="points_b"><%= @points_b %></p>
+      <%= render 'point_button', { reflex: "click->Points#increment", step: 1, points_a: @points_a, points_b: @points_b, team: "b" }%>
+      <%= render 'point_button', { reflex: "click->Points#increment", step: 2, points_a: @points_a, points_b: @points_b, team: "b" }%>
+      <%= render 'point_button', { reflex: "click->Points#increment", step: 3, points_a: @points_a, points_b: @points_b, team: "b" }%>
+  </div>
+
+  <p id="loser"><%= @loser_message %></p>
+</div>
