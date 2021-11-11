@@ -2,11 +2,13 @@
 
 *BasketNote* is a pep project developed using StimulusReflex in order to test its potential.
 
+As the application is using StimulusReflex, a `webpack-dev-server` is needed along the rails server.
+
 To start the project run:
-```
+
+```bash
 foreman start
 ```
-
 
 TODO:
 
