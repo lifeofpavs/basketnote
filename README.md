@@ -2,6 +2,12 @@
 
 *BasketNote* is a pep project developed using StimulusReflex in order to test its potential.
 
+To start the project run:
+```
+foreman start
+```
+
+
 TODO:
 
 - Implement player addition
