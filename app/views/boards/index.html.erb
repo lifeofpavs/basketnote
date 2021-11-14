@@ -3,18 +3,19 @@
 
 <div class="ui two column doubling stackable grid container center aligned">
   <div class="four wide column">
-    <h2>Team A</h2>
-    <p id="points_a"><%= @points_a %></p>
+    <div class="two wide column">
+      <h2>Team A</h2>
+      <button class="mini ui icon basic blue button mt-5" id="create_player_a"><i class="user icon"></i></button>
+
+      <p id="points_a"><%= @points_a %></p>
+    </div>
       <%= render 'point_button', { reflex: "click->Points#increment", step: 1, points_a: @points_a, points_b: @points_b, team: "a" }%>
       <%= render 'point_button', { reflex: "click->Points#increment", step: 2, points_a: @points_a, points_b: @points_b, team: "a" }%>
       <%= render 'point_button', { reflex: "click->Points#increment", step: 3, points_a: @points_a, points_b: @points_b, team: "a" }%>
-      <div class="two wide column">
-        <button class="small ui teal button mt-5" data-reflex="click->PlayerReflex#add">
-          +
-        </button>
-      </div>
 
-      <%= render 'players'%>
+      <%= render 'modal', player_team: 'a' %>
+
+      <%= render partial: 'players', collection: @players_a, as: :player %>
   </div>
 
   <div class="two wide column">
@@ -24,12 +25,22 @@
   </div>
 
   <div class="four wide column">
-    <h2>Team B</h2>
-    <p id="points_b"><%= @points_b %></p>
+    <div class="two wide column">
+      <h2>Team B</h2>
+      <button class="mini ui icon basic blue button mt-5" id="create_player_b"><i class="user icon"></i></button>
+
+      <p id="points_b"><%= @points_b %></p>
+    </div>
+
       <%= render 'point_button', { reflex: "click->Points#increment", step: 1, points_a: @points_a, points_b: @points_b, team: "b" }%>
       <%= render 'point_button', { reflex: "click->Points#increment", step: 2, points_a: @points_a, points_b: @points_b, team: "b" }%>
       <%= render 'point_button', { reflex: "click->Points#increment", step: 3, points_a: @points_a, points_b: @points_b, team: "b" }%>
+
+    <%= render 'modal', player_team: 'b' %>
+
+    <%= render partial: 'players', collection: @players_b, as: :player %>
   </div>
+
 
   <p id="loser"><%= @loser_message %></p>
 </div>

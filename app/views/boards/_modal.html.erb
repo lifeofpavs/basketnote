@@ -1,0 +1,28 @@
+<div class="ui modal player_<%= player_team %>">
+  <%= form_with id: "create_player_form_#{player_team}", url: "#", method: :get, data: { reflex: "submit->PlayerReflex#create_player", points_a: @points_a, points_b: @points_b } do |form|%>
+    <i class='close icon'></i>
+
+    <%= form.text_field :player_name %>
+    <%= form.text_field :player_number %>
+    <%= form.text_field :player_image %>
+    <%= form.hidden_field :player_team, value: player_team %>
+
+    <div class='actions'>
+      <div class='ui black deny button'>
+        Cancel
+      </div>
+      <div class='ui positive right labeled icon button' id='submit_create_player_form' >
+        <%= form.submit %>
+        <i class='checkmark icon'></i>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<script>
+$(document).ready(function(){
+  $("#create_player_<%= player_team %>").on('click', function(){
+    $(".ui.modal.player_<%= player_team %>").modal('show');
+  })
+})
+</script>

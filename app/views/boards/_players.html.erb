@@ -1,23 +1,12 @@
 <div class="ui feed">
   <div class="event">
     <div class="label">
-      <img src="https://via.placeholder.com/150">
+      <img src="<%= player.image %>">
     </div>
     <div class="content">
       <div class="summary">
-        <a class="user">
-          Elliot Fu
-          </a>
-      </div>
-    </div>
-  </div>
-  <div class="event">
-    <div class="label">
-      <img src="https://via.placeholder.com/150">
-    </div>
-    <div class="content">
-      <div class="summary">
-        <a>Helen Troy</a>
+        <a><%= player.name %> - <%= player.number %></a>
+        <a>Fouls: <%= player.fouls %></a>
       </div>
     </div>
   </div>
